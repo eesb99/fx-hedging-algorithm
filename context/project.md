@@ -14,25 +14,26 @@
 - **Historical Data:** ✅ 518 days of real market data (2023-2025)
 - **Data Quality:** ✅ Validation systems operational
 
-### Algorithm Design - OPERATIONAL
-- **Carry Signal:** ✅ BNM (3.00%) vs Fed (4.33%) differential = -1.33%
-- **Momentum Signal:** ✅ 12-month MYR strengthening (+10.68%) = 0.286
-- **Hedge Ratio:** ✅ Combined weighted output = 52.9%
-- **Signal Weights:** ✅ Carry 70%, Momentum 30% (academically supported)
+### Algorithm Design - ENHANCED OPERATIONAL
+- **Carry Signal:** ✅ BNM (3.00%) vs Fed (4.33%) differential = -1.33% → 0.633
+- **Momentum Signal:** ✅ 12-month MYR strengthening (+10.68%) → 0.286
+- **Value Signal:** ✅ PPP analysis (4.22 vs 1.40) = 201% undervaluation → 0.000
+- **Hedge Ratio:** ✅ Three-signal weighted output = 40.2%
+- **Signal Weights:** ✅ Carry 50%, Momentum 30%, Value 20% (Harvey et al. complete)
 
-### Implementation Status - COMPLETE
-1. ✅ **Data Module:** Yahoo Finance + FRED API + validation systems
-2. ✅ **Signal Engine:** Carry and momentum calculations operational
+### Implementation Status - ENHANCED COMPLETE
+1. ✅ **Data Module:** Yahoo Finance + FRED API + World Bank API + validation systems
+2. ✅ **Signal Engine:** Complete three-signal calculations (carry + momentum + value)
 3. ⏳ **Backtesting Framework:** Next development phase
-4. ✅ **Visualization:** 4-panel plots, signal history, automated reports
-5. ✅ **Live Operations:** Real-time hedge ratio generation working
+4. ✅ **Visualization:** Enhanced 4-panel plots with three signals, automated reports
+5. ✅ **Live Operations:** Real-time three-signal hedge ratio generation working
 
-### Business Application Validated
+### Business Application Enhanced
 - **Use Case:** Malaysian importer with MYR 1M annual purchases
-- **Current Recommendation:** Hedge 52.9% (MYR 529K annually)
-- **Economic Impact:** Annual hedging cost MYR 7,036
-- **Risk Analysis:** Protection against MYR weakening, cost certainty
-- **Fed Sensitivity:** 0.25% rate cut would reduce hedge to 51.1%
+- **Enhanced Recommendation:** Hedge 40.2% (MYR 402K annually)
+- **Economic Impact:** Annual hedging cost MYR 5,351 (MYR 1,685 savings vs two-signal)
+- **PPP Insight:** 201% MYR undervaluation supports reduced hedging
+- **Risk Analysis:** Balanced protection with PPP appreciation potential
 
 ### Key Technical Decisions
 - **Environment:** Conda isolated environment (fx-hedging, Python 3.10)
