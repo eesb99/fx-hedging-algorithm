@@ -113,5 +113,8 @@ Published: May 31, 2025
 - **FRED API**: Federal Reserve economic data (Fed Funds Rate)
 - **Bank Negara Malaysia**: Malaysian interest rate reference
 
-### Disclaimer
-This implementation is for educational and risk management purposes. Users should consult with financial professionals before making investment decisions. The algorithm provides analytical insights but does not constitute financial advice.
+### DMCA & Copyright Disclaimer
+This implementation represents an independent interpretation and application of publicly available academic research concepts. All algorithm code, business analysis, and technical implementation are original works developed by the repository owner. The methodology is inspired by academic research that is properly cited and referenced. No copyrighted materials are reproduced.
+
+### Financial Disclaimer
+This implementation is for educational and risk management purposes only. Users should consult with qualified financial professionals before making investment decisions. The algorithm provides analytical insights but does not constitute financial advice. Past performance does not guarantee future results.

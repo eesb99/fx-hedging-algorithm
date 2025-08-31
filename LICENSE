@@ -39,3 +39,13 @@ specifically the carry and momentum signal approach for currency risk management
 Developed with assistance from Claude Code (Anthropic) on August 31, 2025
 Implementation based on Product Requirements Document for MYR/USD hedging algorithm
 Validated against real market conditions and academic research methodology
+
+## Copyright and Disclaimer
+
+This software represents an original implementation of dynamic FX hedging concepts.
+The methodology is inspired by publicly available academic research that is properly
+cited throughout the documentation. All code, analysis, and technical implementation
+are original works. No copyrighted materials have been reproduced.
+
+The algorithm is provided for educational and risk management purposes only.
+Users should consult qualified financial professionals before making investment decisions.
