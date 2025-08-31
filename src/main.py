@@ -33,7 +33,8 @@ def main() -> Dict[str, Any]:
     """
     logger.info("Starting Dynamic FX Hedging Algorithm")
     logger.info(f"Configuration: Carry Weight={ALGORITHM_CONFIG.carry_weight}, "
-                f"Momentum Weight={ALGORITHM_CONFIG.momentum_weight}")
+                f"Momentum Weight={ALGORITHM_CONFIG.momentum_weight}, "
+                f"Value Weight={ALGORITHM_CONFIG.value_weight}")
     
     try:
         # Initialize data manager
@@ -52,10 +53,12 @@ def main() -> Dict[str, Any]:
         # Calculate signals using real data
         carry_signal = data_manager.calculate_carry_signal(interest_rates)
         momentum_signal = data_manager.calculate_momentum_signal(historical_data)
+        value_signal = data_manager.get_ppp_value_signal()
         
-        # Calculate combined hedge ratio
+        # Calculate combined hedge ratio using three signals
         hedge_ratio = (carry_signal * ALGORITHM_CONFIG.carry_weight + 
-                      momentum_signal * ALGORITHM_CONFIG.momentum_weight)
+                      momentum_signal * ALGORITHM_CONFIG.momentum_weight +
+                      value_signal * ALGORITHM_CONFIG.value_weight)
         
         # Constrain within limits
         hedge_ratio = max(ALGORITHM_CONFIG.min_hedge_ratio, 
@@ -77,6 +80,7 @@ def main() -> Dict[str, Any]:
             "hedge_ratio": hedge_ratio,
             "carry_signal": carry_signal,
             "momentum_signal": momentum_signal,
+            "value_signal": value_signal,
             "current_fx_rate": current_fx_rate,
             "recommendation": recommendation,
             "interest_rates": interest_rates,
@@ -87,6 +91,7 @@ def main() -> Dict[str, Any]:
         logger.info(f"Recommended Hedge Ratio: {results['hedge_ratio']:.2%}")
         logger.info(f"Carry Signal: {results['carry_signal']:.3f}")
         logger.info(f"Momentum Signal: {results['momentum_signal']:.3f}")
+        logger.info(f"Value Signal: {results['value_signal']:.3f}")
         
         # Generate visualizations with real data
         logger.info("Creating visualizations...")

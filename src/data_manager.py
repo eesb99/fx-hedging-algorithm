@@ -20,6 +20,9 @@ try:
 except ImportError:
     FRED_AVAILABLE = False
 
+# World Bank API endpoint for PPP data
+WORLD_BANK_PPP_API = "https://api.worldbank.org/v2/country/MY/indicator/PA.NUS.PPP"
+
 logger = logging.getLogger(__name__)
 
 class DataManager:
@@ -338,3 +341,85 @@ class DataManager:
         
         logger.info("Data quality validation passed")
         return True
+    
+    def get_ppp_value_signal(self) -> float:
+        """
+        Get PPP-based value signal using World Bank data.
+        Compares current MYR/USD rate to PPP fair value.
+        
+        Returns:
+            Value signal (0-1): 0 = undervalued (reduce hedge), 1 = overvalued (increase hedge)
+        """
+        try:
+            logger.info("Fetching PPP data from World Bank API...")
+            
+            # Get recent PPP data from World Bank
+            url = f"{WORLD_BANK_PPP_API}?format=json&date=2020:2024&per_page=10"
+            response = requests.get(url, timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                if len(data) > 1 and data[1]:
+                    ppp_records = data[1]
+                    
+                    # Find latest available PPP value
+                    latest_ppp = None
+                    for record in ppp_records:
+                        if record['value']:
+                            latest_ppp = float(record['value'])
+                            ppp_year = record['date']
+                            break
+                    
+                    if latest_ppp:
+                        current_rate = self.get_current_fx_rate()
+                        
+                        # Calculate PPP deviation
+                        ppp_deviation = (current_rate - latest_ppp) / latest_ppp
+                        
+                        # Convert to value signal (Harvey et al. methodology)
+                        # Undervalued currency (current > PPP) should appreciate → reduce hedge
+                        # Overvalued currency (current < PPP) should depreciate → increase hedge
+                        value_signal = max(0, min(1, 0.5 - ppp_deviation * 0.5))
+                        
+                        logger.info(f"PPP analysis - Current: {current_rate:.4f}, "
+                                   f"PPP ({ppp_year}): {latest_ppp:.3f}, "
+                                   f"Deviation: {ppp_deviation:.1%}, "
+                                   f"Value Signal: {value_signal:.3f}")
+                        
+                        return value_signal
+                    else:
+                        logger.warning("No valid PPP data found")
+                else:
+                    logger.warning("No PPP data returned from World Bank API")
+            else:
+                logger.warning(f"World Bank API request failed: {response.status_code}")
+                
+        except Exception as e:
+            logger.error(f"Error fetching PPP data: {e}")
+        
+        # Fallback: Use cached PPP estimate
+        logger.info("Using fallback PPP estimate")
+        return self._get_fallback_ppp_signal()
+    
+    def _get_fallback_ppp_signal(self) -> float:
+        """
+        Fallback PPP value signal using known estimates.
+        
+        Returns:
+            Conservative value signal based on typical PPP ranges
+        """
+        current_rate = self.get_current_fx_rate()
+        
+        # Use recent World Bank estimate: ~1.40 MYR per International USD
+        fallback_ppp = 1.40
+        ppp_deviation = (current_rate - fallback_ppp) / fallback_ppp
+        
+        # Conservative scaling for fallback
+        value_signal = max(0, min(1, 0.5 - ppp_deviation * 0.3))
+        
+        logger.info(f"Fallback PPP signal - Current: {current_rate:.4f}, "
+                   f"Est. PPP: {fallback_ppp:.2f}, "
+                   f"Signal: {value_signal:.3f}")
+        
+        return value_signal

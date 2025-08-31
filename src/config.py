@@ -9,8 +9,9 @@ class AlgorithmConfig:
     """Core algorithm configuration parameters."""
     
     # Signal weights (must sum to 1.0)
-    carry_weight: float = 0.7
+    carry_weight: float = 0.5
     momentum_weight: float = 0.3
+    value_weight: float = 0.2  # PPP-based value signal
     
     # Data parameters
     yahoo_symbol: str = "MYR=X"
@@ -33,8 +34,9 @@ class AlgorithmConfig:
     
     def __post_init__(self):
         """Validate configuration parameters."""
-        if abs(self.carry_weight + self.momentum_weight - 1.0) > 1e-6:
-            raise ValueError("Signal weights must sum to 1.0")
+        total_weights = self.carry_weight + self.momentum_weight + self.value_weight
+        if abs(total_weights - 1.0) > 1e-6:
+            raise ValueError(f"Signal weights must sum to 1.0, got {total_weights:.3f}")
         
         if not (0.0 <= self.min_hedge_ratio <= self.max_hedge_ratio <= 1.0):
             raise ValueError("Invalid hedge ratio constraints")

@@ -72,9 +72,9 @@ class HedgeVisualizer:
         axes[0, 0].grid(True, alpha=0.3)
         
         # Plot 2: Signal Components
-        x_pos = ['Carry Signal', 'Momentum Signal']
-        y_values = [results.get('carry_signal', 0.3), results.get('momentum_signal', 0.9)]
-        colors = ['lightcoral', 'skyblue']
+        x_pos = ['Carry Signal', 'Momentum Signal', 'Value Signal']
+        y_values = [results.get('carry_signal', 0.3), results.get('momentum_signal', 0.9), results.get('value_signal', 0.5)]
+        colors = ['lightcoral', 'skyblue', 'lightgreen']
         
         bars = axes[0, 1].bar(x_pos, y_values, color=colors, alpha=0.7, edgecolor='black')
         axes[0, 1].set_title('Current Signal Components')
