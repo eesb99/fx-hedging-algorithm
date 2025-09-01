@@ -1,6 +1,6 @@
-# Dynamic FX Hedging Algorithm (MYR/USD)
+# Dynamic FX Hedging Algorithm (USD/MYR)
 
-A sophisticated currency risk management system that provides dynamic hedging recommendations for MYR/USD exposures using carry, momentum, and value signals. **Based on Harvey et al. (2025) academic research.**
+A sophisticated currency risk management system that provides dynamic hedging recommendations for USD/MYR exposures using carry, momentum, and value signals. **Based on Harvey et al. (2025) academic research.**
 
 ## ✅ Current Status: PRODUCTION READY
 
@@ -40,12 +40,27 @@ open plots/backtest_*.png
 open plots/*.txt
 ```
 
+## Data Sources Status
+
+**✅ LIVE DATA (Automatic Updates):**
+- **USD/MYR Exchange Rates**: Yahoo Finance API (real-time market data)
+- **Fed Funds Rate**: FRED API (daily updates from Federal Reserve)
+- **PPP Data**: World Bank API (annual purchasing power parity updates)
+
+**⚠️ MANUAL DATA (Requires Updates):**
+- **BNM Rate**: Manual input in config file
+  - Current: 3.00% (as of project date)
+  - **Action Required**: Update `src/config.py` when Bank Negara Malaysia changes policy rates
+  - **Monitor**: BNM official announcements for rate changes
+
+**Data Freshness: 70% Live / 30% Manual**
+
 ## Current Market Analysis (2025-09-01)
 
-- **USD/MYR Rate**: 4.2235 (Yahoo Finance)
-- **Fed Rate**: 4.33% (FRED API)
-- **BNM Rate**: 3.00% (manual input)
-- **PPP Fair Value**: 1.402 MYR/USD (World Bank 2024)
+- **USD/MYR Rate**: 4.2235 (Yahoo Finance - Live)
+- **Fed Rate**: 4.33% (FRED API - Live)
+- **BNM Rate**: 3.00% (Manual Input - Verify Current)
+- **PPP Fair Value**: 1.402 MYR/USD (World Bank 2024 - Live)
 - **Carry Signal**: 0.633 (negative carry environment)
 - **Momentum Signal**: 0.278 (12-month trend)
 - **Value Signal**: 0.008 (MYR severely undervalued 492%)
@@ -104,7 +119,7 @@ fx-hedging-algorithm/
 ## Target Users
 
 - Malaysian exporters and importers (primary use case validated)
-- Asset managers with MYR/USD exposures
+- Asset managers with USD/MYR exposures
 - Financial institutions managing currency risk
 
 ## Risk Disclaimer
@@ -128,11 +143,11 @@ Published: May 31, 2025
 ### Development
 - **Author**: Thian Seong Yee
 - **Development Date**: August 31, 2025
-- **Implementation**: Based on comprehensive PRD for MYR/USD hedging
+- **Implementation**: Based on comprehensive PRD for USD/MYR hedging
 - **Validation**: Confirmed against real market data and academic research
 
 ### Data Sources
-- **Yahoo Finance**: Real-time MYR/USD exchange rates
+- **Yahoo Finance**: Real-time USD/MYR exchange rates
 - **FRED API**: Federal Reserve economic data (Fed Funds Rate)
 - **Bank Negara Malaysia**: Malaysian interest rate reference
 

@@ -9,7 +9,7 @@
 
 ## 🎯 Mission Accomplished
 
-Successfully delivered a **production-ready dynamic FX hedging algorithm** for MYR/USD currency risk management, fully validated against academic research and tested with real business scenarios.
+Successfully delivered a **production-ready dynamic FX hedging algorithm** for USD/MYR currency risk management, fully validated against academic research and tested with real business scenarios.
 
 ## ✅ Core Deliverables
 
@@ -44,7 +44,7 @@ Successfully delivered a **production-ready dynamic FX hedging algorithm** for M
 ## 🔬 Technical Achievements
 
 ### **Data Integration Excellence**
-- ✅ Yahoo Finance: Real-time MYR/USD rates (validated vs market sources)
+- ✅ Yahoo Finance: Real-time USD/MYR rates (validated vs market sources)
 - ✅ FRED API: Live Fed Funds Rate (4.33% confirmed accurate)
 - ✅ Historical Data: 518 days of validated market data (2023-2025)
 - ✅ Quality Assurance: Comprehensive data validation systems
@@ -117,7 +117,7 @@ python src/main.py
 
 ### **Algorithm Output (2025-08-31)**
 ```
-Current MYR/USD Rate: 4.2220
+Current USD/MYR Rate: 4.2220
 Recommended Hedge Ratio: 52.9%
 Recommendation: Increase hedge position
 

@@ -14,7 +14,7 @@
 - [x] Public GitHub repository with DMCA compliance
 
 ### Technical Implementation ✅
-- [x] **Data Manager**: Real-time MYR/USD from Yahoo Finance
+- [x] **Data Manager**: Real-time USD/MYR from Yahoo Finance
 - [x] **FRED API Integration**: Live Fed Funds Rate (4.33%)
 - [x] **World Bank API**: PPP conversion factors (1.402 MYR/USD)
 - [x] **Signal Engine**: Carry (0.633) + Momentum (0.286) + Value (0.000) calculations
@@ -23,7 +23,7 @@
 - [x] **Configuration**: Three-signal weight validation and API management
 
 ### Real-World Validation ✅
-- [x] **Current Market Data**: MYR/USD 4.2220, validated vs authoritative sources
+- [x] **Current Market Data**: USD/MYR 4.2220, validated vs authoritative sources
 - [x] **Interest Rate Accuracy**: Fed 4.33% from FRED API, BNM 3.00% manual
 - [x] **PPP Data Accuracy**: 1.402 MYR/USD from World Bank (2024), 492% undervaluation confirmed
 - [x] **Business Case Analysis**: Enhanced MYR 1M importer scenario with three signals

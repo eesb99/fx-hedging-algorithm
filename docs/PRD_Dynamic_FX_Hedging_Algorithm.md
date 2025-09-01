@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD): Dynamic FX Hedging Algorithm (MYR/USD)
+# Product Requirements Document (PRD): Dynamic FX Hedging Algorithm (USD/MYR)
 
 ***
 
@@ -8,7 +8,7 @@ Design, develop, and deploy a dynamic FX hedging algorithm to manage currency ri
 ***
 
 ## 2. Target Users
-- Asset managers with MYR/USD exposures  
+- Asset managers with USD/MYR exposures  
 - Malaysian exporters/importers  
 - Financial institutions
 
@@ -17,7 +17,7 @@ Design, develop, and deploy a dynamic FX hedging algorithm to manage currency ri
 ## 3. Features/Requirements
 
 ### 3.1. Data Inputs
-- **Exchange Rates:** Fetch daily MYR/USD rates from Yahoo Finance (`MYR=X` symbol, invert as needed).
+- **Exchange Rates:** Fetch daily USD/MYR rates from Yahoo Finance (`MYR=X` symbol).
 - **Interest Rates:** Fetch or input Bank Negara Malaysia (BNM) and US Federal Reserve overnight interest rates (manual input, scraped source, or FRED API).
 - **Historical Data:** Minimum lookback of 1 year, preferably 2–5 years (for momentum and backtesting).
 

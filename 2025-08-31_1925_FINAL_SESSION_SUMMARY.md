@@ -22,7 +22,7 @@
 - ✅ **Signal Weights**: Academically-informed 50% carry, 30% momentum, 20% value
 
 ### **2. Live Data Integration Excellence**
-- ✅ **Yahoo Finance**: Real-time MYR/USD rates (4.2220)
+- ✅ **Yahoo Finance**: Real-time USD/MYR rates (4.2220)
 - ✅ **FRED API**: Live Fed Funds Rate (4.33% validated)
 - ✅ **World Bank API**: PPP conversion factors (1.402 MYR/USD)
 - ✅ **Data Validation**: Multi-source verification and quality controls
@@ -45,7 +45,7 @@
 ```
 Enhanced Algorithm Output (2025-08-31):
 ═══════════════════════════════════════
-Current MYR/USD Rate: 4.2220
+Current USD/MYR Rate: 4.2220
 PPP Fair Value: 1.402 (World Bank 2024)
 MYR Undervaluation: 201%
 
@@ -98,7 +98,7 @@ Recommendation: Maintain moderate hedge position
 ### **Data Sources Integration:**
 ```python
 # Live Data Pipeline
-Yahoo Finance API    → MYR/USD rates (4.2220)
+Yahoo Finance API    → USD/MYR rates (4.2220)
 FRED API            → Fed Funds Rate (4.33%)
 World Bank API      → PPP factors (1.402)
 Manual Input        → BNM rate (3.00%)

@@ -6,6 +6,18 @@
 - **FRED API Key** (free from Federal Reserve)
 - **Internet connection** for live data feeds
 
+## Data Source Requirements
+
+**Automatic (No Setup Required):**
+- Yahoo Finance API (no key needed)
+- World Bank API (no key needed)
+
+**Setup Required:**
+- FRED API key (free registration)
+
+**Manual Maintenance:**
+- BNM rate updates (monitor Bank Negara Malaysia announcements)
+
 ## Quick Installation
 
 ### 1. Clone Repository
