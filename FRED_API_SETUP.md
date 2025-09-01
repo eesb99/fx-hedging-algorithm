@@ -1,5 +1,7 @@
 # FRED API Setup Guide
 
+**NOTE:** For complete installation instructions, see [INSTALLATION.md](INSTALLATION.md). This guide focuses specifically on FRED API configuration.
+
 ## Get Your Free FRED API Key
 
 1. **Visit FRED Website**: Go to https://fred.stlouisfed.org/
@@ -13,12 +15,12 @@
 
 ## Configure the API Key
 
-### Option 1: Environment Variable (Recommended)
+### Option 1: Environment File (Recommended)
 ```bash
-# Add to your shell profile (.zshrc, .bashrc)
-export FRED_API_KEY="your_api_key_here"
+# Create ~/.env file
+echo "FRED_API_KEY=your_api_key_here" > ~/.env
 
-# Or set for current session
+# Alternative: Set environment variable
 export FRED_API_KEY="your_api_key_here"
 ```
 
