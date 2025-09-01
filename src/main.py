@@ -82,6 +82,7 @@ def main() -> Dict[str, Any]:
             "momentum_signal": momentum_signal,
             "value_signal": value_signal,
             "current_fx_rate": current_fx_rate,
+        
             "recommendation": recommendation,
             "interest_rates": interest_rates,
             "data_points": len(historical_data)

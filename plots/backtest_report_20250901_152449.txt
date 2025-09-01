@@ -1,0 +1,36 @@
+============================================================
+FX HEDGING BACKTEST ANALYSIS REPORT
+============================================================
+
+Generated: 2025-09-01T15:24:49.000626
+Import Amount: MYR 1,000,000 annually
+Backtest Period: 278 days
+
+SCENARIO PERFORMANCE COMPARISON:
+----------------------------------------
+Scenario             Total Cost      vs No Hedge  Volatility   Risk Score
+----------------------------------------------------------------------
+No Hedge (0%)        MYR  3,312,755      0.0%        281   -0.000
+Full Hedge (100%)    MYR  3,478,057      5.0%          0    0.000
+Conservative (25%)   MYR  3,354,080      1.2%        211 -196.307
+Algorithm (40%)      MYR  3,378,876      2.0%        168 -392.613
+Moderate (50%)       MYR  3,395,406      2.5%        140 -588.920
+Aggressive (75%)     MYR  3,436,732      3.7%         70 -1766.759
+
+DETAILED ANALYSIS:
+--------------------
+Algorithm Recommendation (40% hedge):
+  Total Cost: MYR 3,378,876
+  Cost vs No Hedge: MYR +66,121 (+2.0%)
+  Daily Volatility: MYR 168
+  Risk-Adjusted Score: -392.613
+
+Best Risk-Adjusted Performance: No Hedge (0%)
+  Risk Score: -0.000
+
+KEY INSIGHTS:
+------------
+• Higher hedge ratios reduce volatility but may increase total costs
+• Algorithm balances cost efficiency with risk management
+• Risk-adjusted score considers both cost impact and volatility
+• Actual performance depends on specific market conditions during period

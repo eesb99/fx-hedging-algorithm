@@ -6,12 +6,12 @@
 **Last Updated:** 2025-08-31 Final Update
 
 ## Project Overview
-Successfully built and enhanced a dynamic FX hedging algorithm for MYR/USD currency risk management using live financial data and three dynamic signals (carry, momentum, value). Fully implements Harvey et al. (2025) academic research methodology.
+Successfully built and enhanced a dynamic FX hedging algorithm for USD/MYR currency risk management using live financial data and three dynamic signals (carry, momentum, value). Fully implements Harvey et al. (2025) academic research methodology.
 
 ## Key Requirements from PRD ✅ DELIVERED
 - **Target Users:** Asset managers, Malaysian exporters/importers, financial institutions
 - **Core Functionality:** ✅ Dynamic hedge ratio calculation (0-1) based on carry, momentum, and value signals
-- **Data Sources:** ✅ Yahoo Finance (MYR/USD rates), ✅ FRED API (Fed rates), ✅ World Bank API (PPP), Manual BNM rates
+- **Data Sources:** ✅ Yahoo Finance (USD/MYR rates), ✅ FRED API (Fed rates), ✅ World Bank API (PPP), Manual BNM rates
 - **Architecture:** ✅ Python backend, ✅ Visualization system, Jupyter notebooks ready
 
 ## Current Phase: CORE ALGORITHM COMPLETE
@@ -37,9 +37,9 @@ Successfully built and enhanced a dynamic FX hedging algorithm for MYR/USD curre
 ## Real-World Application Validated
 - **User Profile:** Malaysian importer, MYR 1M annual purchases
 - **Current Recommendation:** 40.2% hedge ratio (enhanced three-signal)
-- **Market Conditions:** BNM 3.00%, Fed 4.33% (FRED API), MYR/USD 4.2220, PPP 1.402 (World Bank)
+- **Market Conditions:** BNM 3.00%, Fed 4.33% (FRED API), USD/MYR 4.2220, PPP 1.402 (World Bank)
 - **Business Impact:** Hedge MYR 402K annually, cost MYR 5,351/year
-- **PPP Impact:** 201% MYR undervaluation reduces hedging need by 12.7%
+- **PPP Impact:** 492% MYR undervaluation reduces hedging need by 12.7%
 
 ## Academic Foundation
 - **Research Base:** Harvey et al. (2025) "The Best Strategies for FX Hedging"

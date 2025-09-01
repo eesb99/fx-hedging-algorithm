@@ -2,15 +2,15 @@
 FX HEDGING ALGORITHM REPORT
 ==================================================
 
-Generated: 2025-08-31T18:25:36.734219
-Current MYR/USD Rate: 4.222
-Recommended Hedge Ratio: 52.90%
-Recommendation: Increase hedge position
+Generated: 2025-09-01T15:15:25.553316
+Current MYR/USD Rate: 4.2235
+Recommended Hedge Ratio: 39.98%
+Recommendation: Maintain moderate hedge position
 
 SIGNAL BREAKDOWN:
 --------------------
 Carry Signal: 0.633
-Momentum Signal: 0.286
+Momentum Signal: 0.278
 
 CONFIGURATION:
 --------------------

@@ -144,16 +144,19 @@ class HedgeVisualizer:
         dates = pd.date_range(end=datetime.now(), periods=days, freq='D')
         np.random.seed(42)
         
-        carry_signals = np.cumsum(np.random.normal(0, 0.02, days)) + 0.3
-        momentum_signals = np.cumsum(np.random.normal(0, 0.03, days)) + 0.9
+        carry_signals = np.cumsum(np.random.normal(0, 0.02, days)) + 0.6
+        momentum_signals = np.cumsum(np.random.normal(0, 0.03, days)) + 0.3
+        value_signals = np.zeros(days)  # Value signal consistently 0 for undervalued MYR
         
         # Constrain signals to reasonable ranges
         carry_signals = np.clip(carry_signals, 0, 1)
         momentum_signals = np.clip(momentum_signals, 0, 1)
+        value_signals = np.clip(value_signals, 0, 1)
         
         plt.figure(figsize=(12, 6))
         plt.plot(dates, carry_signals, label='Carry Signal', linewidth=2, alpha=0.8)
         plt.plot(dates, momentum_signals, label='Momentum Signal', linewidth=2, alpha=0.8)
+        plt.plot(dates, value_signals, label='Value Signal', linewidth=2, alpha=0.8)
         
         plt.title('Signal Evolution Over Time', fontsize=14, fontweight='bold')
         plt.xlabel('Date')
@@ -201,11 +204,12 @@ class HedgeVisualizer:
             f.write("SIGNAL BREAKDOWN:\n")
             f.write("-"*20 + "\n")
             f.write(f"Carry Signal: {results.get('carry_signal', 0):.3f}\n")
-            f.write(f"Momentum Signal: {results.get('momentum_signal', 0):.3f}\n\n")
+            f.write(f"Momentum Signal: {results.get('momentum_signal', 0):.3f}\n")
+            f.write(f"Value Signal: {results.get('value_signal', 0):.3f}\n\n")
             
             f.write("CONFIGURATION:\n")
             f.write("-"*20 + "\n")
-            f.write("Signal Weights: Carry 70%, Momentum 30%\n")
+            f.write("Signal Weights: Carry 50%, Momentum 30%, Value 20%\n")
             f.write("Review Frequency: Monthly\n")
             f.write("Risk Management Focus: Portfolio volatility reduction\n")
         

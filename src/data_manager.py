@@ -374,17 +374,20 @@ class DataManager:
                     if latest_ppp:
                         current_rate = self.get_current_fx_rate()
                         
-                        # Calculate PPP deviation
-                        ppp_deviation = (current_rate - latest_ppp) / latest_ppp
+                        # Calculate PPP undervaluation (correct methodology)
+                        # Convert current_rate (USD/MYR) to MYR/USD for proper comparison
+                        current_rate_myr_usd = 1 / current_rate
+                        ppp_undervaluation = (latest_ppp / current_rate_myr_usd - 1)
                         
                         # Convert to value signal (Harvey et al. methodology)
-                        # Undervalued currency (current > PPP) should appreciate → reduce hedge
-                        # Overvalued currency (current < PPP) should depreciate → increase hedge
-                        value_signal = max(0, min(1, 0.5 - ppp_deviation * 0.5))
+                        # Undervalued currency (PPP > market) should appreciate → reduce hedge
+                        # Overvalued currency (PPP < market) should depreciate → increase hedge
+                        value_signal = max(0, min(1, 0.5 - ppp_undervaluation * 0.1))
                         
-                        logger.info(f"PPP analysis - Current: {current_rate:.4f}, "
-                                   f"PPP ({ppp_year}): {latest_ppp:.3f}, "
-                                   f"Deviation: {ppp_deviation:.1%}, "
+                        logger.info(f"PPP analysis - Current: {current_rate:.4f} USD/MYR "
+                                   f"({current_rate_myr_usd:.4f} MYR/USD), "
+                                   f"PPP ({ppp_year}): {latest_ppp:.4f} MYR/USD, "
+                                   f"MYR Undervaluation: {ppp_undervaluation:.1%}, "
                                    f"Value Signal: {value_signal:.3f}")
                         
                         return value_signal
